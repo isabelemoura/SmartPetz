@@ -7,7 +7,7 @@ MDScreen:
             icon: "chevron-left"
             user_font_size: "35sp"
             pos_hint: {"center_y": .95}
-            on_release: app.go_back_to_pre_splash()  # Chama o método para voltar à tela "pre-splash"
+            on_release: app.go_back_to_pre_splash()
 
         MDLabel:
             font_size: "18sp"
@@ -26,54 +26,26 @@ MDScreen:
             color: 120/255, 120/255, 120/255, 1
             pos_hint: {"center_x": .6, "center_y": .64}
 
-        # Lembre-se de mim
-        MDFloatLayout:
-            size_hint: .79, .05
-            pos_hint: {"center_x": .6, "center_y": .15}
-
-            MDCheckbox:
-                size_hint: None, None
-                size: "48dp", "48dp"
-                pos_hint: {"center_x": .0, "center_y": .6}
-
-            MDLabel:
-                text: "Lembre-se de mim"
-                font_size: "14sp"
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
-                pos_hint: {"center_x": .6, "center_y": .5}
-                halign: "left"
-
         # Nome
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .52}
             
             MDLabel:
-                text: "Nome"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "Nome"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: .8
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
-
-            Image:
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final do nome
 
         # E-mail
         MDFloatLayout:
@@ -81,32 +53,20 @@ MDScreen:
             pos_hint: {"center_x": .5, "center_y": .42}
             
             MDLabel:
-                text: "E-mail"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "E-mail"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: .8
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
-
-            Image:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\email.png"
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final do e-mail
 
         # Senha
         MDFloatLayout:
@@ -114,31 +74,21 @@ MDScreen:
             pos_hint: {"center_x": .5, "center_y": .32}
             
             MDLabel:
-                text: "Senha"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "Senha"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: .8
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
                 font_size: "17sp"
                 multiline: False
                 password: True
-
-            Image:
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .4, .4
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final da senha
 
         # Confirmar senha
         MDFloatLayout:
@@ -146,41 +96,25 @@ MDScreen:
             pos_hint: {"center_x": .5, "center_y": .22}
             
             MDLabel:
-                text: "Confirmar senha"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
-                pos_hint: {"center_x": .3, "center_y": .4}
-                background_color: 0, 0, 0, 0
+            MDTextField:
+                hint_text: "Confirmar senha"
+                mode: "line"
+                pos_hint: {"center_x": .5, "center_y": .4}
+                size_hint_x: .8
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
                 font_size: "17sp"
                 multiline: False
                 password: True
 
-            Image:
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .4, .4
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-
-        Button:
+        MDRaisedButton:
             text: "Cadastrar"
-            background_color: 0, 0, 0, 1  # Fundo preto
-            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
+            md_bg_color: 0, 0, 0, 1  # Fundo preto
+            text_color: 1, 1, 1, 1
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .09}
-            canvas.before:
-                Color:
-                    rgb: 0, 0, 0, 1
-                RoundedRectangle:
-                    size: self.size
-                    pos: self.pos
-                    radius: [2]

@@ -7,7 +7,7 @@ MDScreen:
             icon: "chevron-left"
             user_font_size: "35sp"
             pos_hint: {"center_y": .95}
-            on_release: app.go_back_to_pre_splash()  # Chama o método para voltar à tela "pre-splash"
+            on_release: app.go_back_to_pre_splash()
 
         MDLabel:
             font_size: "18sp"
@@ -24,15 +24,16 @@ MDScreen:
             font_size: "28sp"
             font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
             color: 120/255, 120/255, 120/255, 1
-            pos_hint: {"center_x": .5, "center_y": .58}  # Centraliza o texto horizontalmente e ajusta a posição vertical
-            halign: "center"  # Centraliza o texto horizontalmente dentro do MDLabel
+            pos_hint: {"center_x": .5, "center_y": .58}
+            halign: "center"
 
-        # Campo de Usuário
+        # Campo de Usuário com ícone à direita
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .40}
 
             MDTextField:
+                id: user_field
                 hint_text: "Usuário"
                 mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .5}
@@ -45,7 +46,14 @@ MDScreen:
                 multiline: False
                 height: dp(50)
 
-        # Campo de Senha
+            MDIconButton:
+                icon: "account"
+                pos_hint: {"center_y": .5, "right": 1}
+                size_hint: None, None
+                size: dp(25), dp(25)
+                on_release: app.icon_click()  # Aqui você pode adicionar uma função caso o ícone seja clicável
+
+        # Campo de Senha com ícone de visibilidade à direita
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .28}
@@ -62,22 +70,22 @@ MDScreen:
                 cursor_color: 0, 0, 0, 1
                 font_size: "17sp"
                 multiline: False
-                password: True  # Mascarar o texto digitado
+                password: True
                 height: dp(50)
 
             MDIconButton:
                 id: toggle_password_visibility
-                icon: "eye-off"  # Ícone inicial (ocultar)
-                pos_hint: {"center_x": .96, "center_y": .5}
-                size_hint: .1, .1
+                icon: "eye-off"
+                pos_hint: {"center_y": .5, "right": 1}
+                size_hint: None, None
+                size: dp(25), dp(25)
                 on_release:
-                    # Alterna entre mostrar e ocultar a senha
                     password_field.password = not password_field.password
                     toggle_password_visibility.icon = "eye" if password_field.password else "eye-off"
 
         MDRaisedButton:
             text: "Entrar"
-            md_bg_color: 0, 0, 0, 1  # Fundo preto
+            md_bg_color: 0, 0, 0, 1
             text_color: 1, 1, 1, 1
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .15}

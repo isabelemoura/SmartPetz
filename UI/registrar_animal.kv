@@ -9,132 +9,85 @@
             pos_hint: {"center_y": .95}
             on_release: app.go_back_to_pre_splash()
 
-        # Imagem quadrada antes dos textos
         Image:
             source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Assets\Petz-Splash.png"
-            size_hint: .40, .40  # Ajuste o tamanho da imagem quadrada
-            pos_hint: {"center_x": .50, "center_y": .80}  # Ajuste a posição conforme necessário
+            size_hint: .4, .4
+            pos_hint: {"center_x": .5, "center_y": .75}
 
         MDLabel:
             text: "Cadastrar Animal"
             font_size: "28sp"
             font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
             color: 120/255, 120/255, 120/255, 1
-            pos_hint: {"center_x": .6, "center_y": .64}
+            pos_hint: {"center_x": .5, "center_y": .6}
+            halign: "center"
 
-        # Nome do Animal
         MDFloatLayout:
-            size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .52}
-            
+            size_hint: .8, .08
+            pos_hint: {"center_x": .5, "center_y": .48}
+
             MDLabel:
-                text: "Nome"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
+                halign: "center"
 
-            TextInput:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\user.png"
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "Nome do Animal"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
 
-            Image:
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final do Nome
-
-        # Tipo do Animal (ComboBox como TextInput)
         MDFloatLayout:
-            size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .42}
-            
+            size_hint: .8, .08
+            pos_hint: {"center_x": .5, "center_y": .38}
+
             MDLabel:
-                text: "Tipo"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
+                halign: "center"
 
-            TextInput:
-                text: "Selecione o Tipo"
-                size_hint_y: .72
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "Selecione o Tipo"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
                 readonly: True
                 on_focus: if self.focus: app.open_menu(self)
 
-            Image:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\dropdrown.png"
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final do Tipo
-
-        # Raça do Animal
         MDFloatLayout:
-            size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .32}
-            
+            size_hint: .8, .08
+            pos_hint: {"center_x": .5, "center_y": .28}
+
             MDLabel:
-                text: "Raça"
                 font_size: "14sp"
                 font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
                 pos_hint: {"center_x": .5, "center_y": .9}
+                halign: "center"
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            MDTextField:
+                hint_text: "Raça do Animal"
+                mode: "line"
                 pos_hint: {"center_x": .5, "center_y": .4}
-                background_color: 0, 0, 0, 0
+                size_hint_x: 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
 
-            Image:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\paw.png"
-                pos_hint: {"center_x": .95, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-        # Final da Raça
-
-        Button:
+        MDRaisedButton:
             text: "Cadastrar"
-            background_color: 0, 0, 0, 1
-            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
-            size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .09}
-            canvas.before:
-                Color:
-                    rgb: 0, 0, 0, 1
-                RoundedRectangle:
-                    size: self.size
-                    pos: self.pos
-                    radius: [2]
-        
+            md_bg_color: 0, 0, 0, 1
+            text_color: 1, 1, 1, 1
+            size_hint: .8, .08
+            pos_hint: {"center_x": .5, "center_y": .15}
+            on_release: app.cadastrar_animal()
