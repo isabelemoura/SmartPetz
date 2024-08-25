@@ -1,0 +1,186 @@
+<Monitor>:
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_release: app.go_back_to_wifi()
+
+        MDLabel:
+            text: "Monitoramento"
+            font_size: "28sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .95}
+
+        ScrollView:
+            size_hint: (1, 0.8)  # Ajuste para ocupar o espaço restante
+            pos_hint: {"center_y": 0.5}  # Centralize verticalmente
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height  # Ajuste a altura para se ajustar ao conteúdo
+
+                # Container para Nível da Água
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(120)  # Aumentado para acomodar a barra de progresso
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)  # Adiciona padding para melhor espaçamento
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: dp(50)
+
+                        MDIconButton:
+                            icon: "water"
+                            user_font_size: "24sp"
+                            pos_hint: {"center_y": .5}
+
+                        MDLabel:
+                            text: "Nível da Água"
+                            font_size: "18sp"
+                            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+                            color: 0, 0, 0, 1
+                            halign: "left"
+                            size_hint_x: 0.8  # Ajusta o tamanho do texto para não ocupar todo o espaço
+
+                    MDProgressBar:
+                        id: water_progress
+                        max: 100
+                        value: root.water_level
+                        color: [1, 0, 0, 1] if root.water_level <= 40 else [1, 1, 0, 1] if root.water_level <= 60 else [0, 1, 0, 1]
+                        size_hint_y: None
+                        height: dp(10)
+                        pos_hint: {"center_x": .5}  # Centraliza a barra de progresso
+
+                # Container para Temperatura
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(120)  # Aumentado para acomodar a barra de progresso
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: dp(50)
+
+                        MDIconButton:
+                            icon: "thermometer"
+                            user_font_size: "24sp"
+                            pos_hint: {"center_y": .5}
+
+                        MDLabel:
+                            text: "Temperatura"
+                            font_size: "18sp"
+                            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+                            color: 0, 0, 0, 1
+                            halign: "left"
+                            size_hint_x: 0.8  # Ajusta o tamanho do texto para não ocupar todo o espaço
+
+                    MDProgressBar:
+                        id: temp_progress
+                        max: 100
+                        value: root.temperature
+                        color: [1, 0, 0, 1] if root.temperature <= 40 else [1, 1, 0, 1] if root.temperature <= 60 else [0, 1, 0, 1]
+                        size_hint_y: None
+                        height: dp(10)
+                        pos_hint: {"center_x": .5}  # Centraliza a barra de progresso
+
+                # Container para Nível da Ração
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(120)  # Aumentado para acomodar a barra de progresso
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: dp(50)
+
+                        MDIconButton:
+                            icon: "bone"  # Ícone alterado para osso
+                            user_font_size: "24sp"
+                            pos_hint: {"center_y": .5}
+
+                        MDLabel:
+                            text: "Nível da Ração"
+                            font_size: "18sp"
+                            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+                            color: 0, 0, 0, 1
+                            halign: "left"
+                            size_hint_x: 0.8  # Ajusta o tamanho do texto para não ocupar todo o espaço
+
+                    MDProgressBar:
+                        id: food_progress
+                        max: 100
+                        value: root.food_level
+                        color: [1, 0, 0, 1] if root.food_level <= 40 else [1, 1, 0, 1] if root.food_level <= 60 else [0, 1, 0, 1]
+                        size_hint_y: None
+                        height: dp(10)
+                        pos_hint: {"center_x": .5}  # Centraliza a barra de progresso
+
+        # Container para os ícones com efeito 3D
+        MDCard:
+            orientation: 'horizontal'
+            size_hint: (None, None)
+            width: "300dp"
+            height: "60dp"
+            padding: dp(3)
+            elevation: 0.5
+            radius: [20]
+            pos_hint: {"center_x": 0.5, "center_y": 0.15}  # Ajustar para mover mais para baixo
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(8)  # Reduzir o espaçamento entre ícones
+                size_hint: (1, 1)
+                padding: dp(5)  # Reduzir padding
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\home.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_login()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\monitor.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\calendar.png"
+                    user_font_size: "35sp"
+                    on_release: app.open_calendar()  # Atualizado para abrir o calendário
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\registro.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\settings.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_config()
+                    size_hint: None, None
+                    size: "50dp", "50dp"

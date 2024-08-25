@@ -1,0 +1,146 @@
+<DefinirRefeicao>:
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_release: app.go_back_to_home()
+
+        MDLabel:
+            text: "Definir refeição"
+            font_size: "28sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .95}
+
+        ScrollView:
+            size_hint: (1, 0.8)  # Ajuste para ocupar o espaço restante
+            pos_hint: {"center_y": 0.5}  # Centralize verticalmente
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height  # Ajuste a altura para se ajustar ao conteúdo
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)  # Adiciona padding para melhor espaçamento
+
+                    MDIconButton:
+                        icon: "silverware-fork-knife"
+                        user_font_size: "24sp"
+                        pos_hint: {"center_y": .5}
+
+                    MDLabel:
+                        text: "Rotina de alimentação"
+                        font_size: "18sp"
+                        font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+                        color: 0, 0, 0, 1
+                        halign: "left"
+                        size_hint_x: 0.8  # Ajusta o tamanho do texto para não ocupar todo o espaço
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)
+
+                    MDIconButton:
+                        icon: "clock-outline"
+                        user_font_size: "24sp"
+                        pos_hint: {"center_y": .5}
+
+                    MDTextField:
+                        hint_text: "Definir horário"
+                        mode: "line"
+                        pos_hint: {"center_y": .5}
+                        size_hint_x: .8  # Ajusta o tamanho do campo de texto
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)
+
+                    MDIconButton:
+                        icon: "scale-bathroom"
+                        user_font_size: "24sp"
+                        pos_hint: {"center_y": .5}
+
+                    MDTextField:
+                        hint_text: "Definir quantidade"
+                        mode: "line"
+                        pos_hint: {"center_y": .5}
+                        size_hint_x: .8
+
+                MDRaisedButton:
+                    text: "Salvar"
+                    md_bg_color: 0, 0, 0, 1
+                    text_color: 1, 1, 1, 1
+                    size_hint: .9, None
+                    height: dp(60)
+                    pos_hint: {"center_x": .5}
+                    on_release: app.save_refeicao()
+
+        # Container para os ícones com efeito 3D
+        MDCard:
+            orientation: 'horizontal'
+            size_hint: (None, None)
+            width: "300dp"
+            height: "60dp"
+            padding: dp(3)
+            elevation: 0.5
+            radius: [20]
+            pos_hint: {"center_x": 0.5, "center_y": 0.15}  # Ajustar para mover mais para baixo
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(8)  # Reduzir o espaçamento entre ícones
+                size_hint: (1, 1)
+                padding: dp(5)  # Reduzir padding
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\home.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_login()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\monitor.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\calendar.png"
+                    user_font_size: "35sp"
+                    on_release: app.open_calendar()  # Atualizado para abrir o calendário
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\registro.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\settings.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_wifi()
+                    size_hint: None, None
+                    size: "50dp", "50dp"

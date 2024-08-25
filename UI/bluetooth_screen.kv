@@ -1,0 +1,27 @@
+<BluetoothScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)  # Espaço entre os widgets
+        padding: [0, dp(20), 0, 0]  # Espaço ao redor dos widgets (topo)
+
+        # Título da tela
+        Label:
+            text: "Buscando..."
+            font_size: "24sp"
+            size_hint_y: None
+            height: dp(50)  # Ajuste a altura conforme necessário
+            pos_hint: {"center_x": 0.5}
+            color: 0, 0, 0, 1  # Cor preta (RGBA)
+
+        # Imagem do Bluetooth
+        Image:
+            source: "C:/Users/User/OneDrive/Área de Trabalho/SmartPetz/Assets/bluetooth.jfif"
+            size_hint: (1, None)
+            height: dp(200)  # Ajuste a altura conforme necessário
+            pos_hint: {"center_x": 0.5}
+        
+        # Espaço flexível para empurrar o conteúdo para o centro
+        Widget:
+            size_hint_y: None
+            height: dp(150)  # Ajuste a altura conforme necessário
+

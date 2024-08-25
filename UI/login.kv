@@ -1,0 +1,112 @@
+MDScreen:
+    name: "login"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_release: app.go_back_to_pre_splash()  # Chama o método para voltar à tela "pre-splash"
+
+        MDLabel:
+            font_size: "18sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+            pos_hint: {"center_x": .615, "center_y": .949}
+
+        Image:
+            source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Assets\Petz.png"
+            size_hint: .26, .26
+            pos_hint: {"center_x": .50, "center_y": .7}
+
+        MDLabel:
+            text: "Login"
+            font_size: "28sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .9, "center_y": .58}
+
+        # Usuário (Nome ou email)
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .42}
+            
+            MDLabel:
+                text: "Usuário ou e-mail"
+                font_size: "14sp"
+                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+
+            TextInput:
+                size_hint_y: .75
+                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+
+            Image:
+                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\user.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .5, .5
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+
+        # Senha
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .28}
+            
+            MDLabel:
+                text: "Senha"
+                font_size: "14sp"
+                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9}
+
+            TextInput:
+                size_hint_y: .75
+                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4}
+                background_color: 0, 0, 0, 0
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+                password: True
+
+            Image:
+                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\key.png"
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .0}
+                size_hint_y: .03
+                md_bg_color: 120/255, 120/255, 120/255, 1
+
+        Button:
+            text: "Entrar"
+            background_color: 0, 0, 0, 1  # Fundo preto
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .15}
+            canvas.before:
+                Color:
+                    rgb: 0, 0, 0, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]
+
+        MDTextButton:
+            text: "Esqueceu a senha?"
+            font_size: "13sp"
+            pos_hint: {"center_x": .5, "center_y": .07}
+            halign: "center"
+            color: 120/255, 120/255, 120/255, 1

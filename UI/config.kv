@@ -1,0 +1,146 @@
+<ConfigScreen>:
+    name: "config"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .94}  # Subir o ícone um pouco mais
+            on_release: app.go_back_to_wifi()
+
+        MDLabel:
+            text: "Configurações"
+            font_size: "28sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .94}  # Subir o texto um pouco mais
+
+        ScrollView:
+            size_hint: (1, 0.73)  # Reduzir um pouco para liberar mais espaço na parte superior
+            pos_hint: {"center_y": 0.5}  # Manter centralizado verticalmente
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                # Container para Perfil do Usuário
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(60)
+                    md_bg_color: 1, 1, 1, 1
+                    padding: dp(10)
+                    spacing: dp(10)
+
+                    # Perfil do Usuário
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_x: 0.8
+                        spacing: dp(10)
+
+                        Image:
+                            source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Assets\user.jfif"
+                            size_hint: None, None
+                            size: "40dp", "40dp"
+                            allow_stretch: True
+
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                            padding: dp(8)
+                            MDLabel:
+                                text: "Leonardo"
+                                font_size: "18sp"
+                                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+                                color: 0, 0, 0, 1
+
+                    MDRaisedButton:
+                        text: "Sair"
+                        size_hint_x: 0.2
+                        pos_hint: {"center_y": .5}
+                        md_bg_color: [0, 0, 0, 1]
+                        text_color: [1, 1, 1, 1]
+                        padding: dp(10)
+
+                MDSeparator:
+
+                OneLineListItem:
+                    text: "Cadastrar animal"
+                    on_release: app.go_back_to_registrar_animal()
+
+                OneLineListItem:
+                    text: "Definir porção"
+                    on_release: app.root.current = "definir_porcao"
+
+                OneLineListItem:
+                    text: "Agendar refeições"
+                    on_release: app.root.current = "agendar_refeicoes"
+
+                OneLineListItem:
+                    text: "Alterar rede wifi"
+                    on_release: app.root.current = "alterar_wifi"
+
+                OneLineListItem:
+                    text: "Manual"
+                    on_release: app.root.current = "manual"
+
+                OneLineListItem:
+                    text: "Ajuda"
+                    on_release: app.root.current = "ajuda"
+
+        # Container para os ícones com efeito 3D
+        MDCard:
+            orientation: 'horizontal'
+            size_hint: (None, None)
+            width: "300dp"
+            height: "60dp"
+            padding: dp(3)
+            elevation: 0.5
+            radius: [20]
+            pos_hint: {"center_x": 0.5, "center_y": 0.08}  # Descer o contêiner um pouco mais
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(8)
+                size_hint: (1, 1)
+                padding: dp(5)
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\home.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_login()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\monitor.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\calendar.png"
+                    user_font_size: "35sp"
+                    on_release: app.open_calendar()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\registro.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_pre_splash()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+
+                MDIconButton:
+                    icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\settings.png"
+                    user_font_size: "35sp"
+                    on_release: app.go_back_to_config()
+                    size_hint: None, None
+                    size: "50dp", "50dp"
