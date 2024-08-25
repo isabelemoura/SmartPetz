@@ -53,16 +53,15 @@ class SmartPetz(MDApp):
         Builder.load_file("pre-splash.kv")
         Builder.load_file("login.kv")
         
+        self.screen_manager.add_widget(Builder.load_file("login.kv"))
+        self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
         self.screen_manager.add_widget(Monitor(name="monitor"))
         self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
-        self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
         self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
         self.screen_manager.add_widget(ConfigScreen(name="config"))
         self.screen_manager.add_widget(WifiScreen(name="wifi"))
         self.screen_manager.add_widget(BluetoothScreen(name="bluetooth"))
         self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
-        self.screen_manager.add_widget(Builder.load_file("login.kv"))
-        
         self.screen_manager.add_widget(Menu(name="menu"))
         
         return self.screen_manager

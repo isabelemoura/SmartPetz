@@ -18,91 +18,70 @@ MDScreen:
             source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Assets\Petz.png"
             size_hint: .26, .26
             pos_hint: {"center_x": .50, "center_y": .7}
-
+        
         MDLabel:
             text: "Login"
             font_size: "28sp"
             font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
             color: 120/255, 120/255, 120/255, 1
-            pos_hint: {"center_x": .9, "center_y": .58}
+            pos_hint: {"center_x": .5, "center_y": .58}  # Centraliza o texto horizontalmente e ajusta a posição vertical
+            halign: "center"  # Centraliza o texto horizontalmente dentro do MDLabel
 
-        # Usuário (Nome ou email)
+        # Campo de Usuário
         MDFloatLayout:
             size_hint: .79, .08
-            pos_hint: {"center_x": .5, "center_y": .42}
-            
-            MDLabel:
-                text: "Usuário ou e-mail"
-                font_size: "14sp"
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
-                pos_hint: {"center_x": .5, "center_y": .9}
+            pos_hint: {"center_x": .5, "center_y": .40}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
-                pos_hint: {"center_x": .49, "center_y": .4}
-                background_color: 0, 0, 0, 0
+            MDTextField:
+                hint_text: "Usuário"
+                mode: "line"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint_x: .8
+                padding: [dp(10), dp(10)]
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
-                foreground_color: 120/255, 120/255, 120/255, 1
                 font_size: "17sp"
                 multiline: False
+                height: dp(50)
 
-            Image:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\user.png"
-                pos_hint: {"center_x": .96, "center_y": .5}
-                size_hint: .5, .5
-
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-
-        # Senha
+        # Campo de Senha
         MDFloatLayout:
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .28}
-            
-            MDLabel:
-                text: "Senha"
-                font_size: "14sp"
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
-                pos_hint: {"center_x": .5, "center_y": .9}
 
-            TextInput:
-                size_hint_y: .75
-                font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
-                pos_hint: {"center_x": .49, "center_y": .4}
-                background_color: 0, 0, 0, 0
+            MDTextField:
+                id: password_field
+                hint_text: "Senha"
+                mode: "line"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint_x: .8
+                padding: [dp(10), dp(10)]
+                line_color_normal: 120/255, 120/255, 120/255, 1
+                line_color_focus: 0, 0, 1, 1
                 cursor_color: 0, 0, 0, 1
-                cursor_width: "2sp"
                 font_size: "17sp"
                 multiline: False
-                password: True
+                password: True  # Mascarar o texto digitado
+                height: dp(50)
 
-            Image:
-                source: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\key.png"
+            MDIconButton:
+                id: toggle_password_visibility
+                icon: "eye-off"  # Ícone inicial (ocultar)
                 pos_hint: {"center_x": .96, "center_y": .5}
-                size_hint: .4, .4
+                size_hint: .1, .1
+                on_release:
+                    # Alterna entre mostrar e ocultar a senha
+                    password_field.password = not password_field.password
+                    toggle_password_visibility.icon = "eye" if password_field.password else "eye-off"
 
-            MDFloatLayout:
-                pos_hint: {"center_x": .5, "center_y": .0}
-                size_hint_y: .03
-                md_bg_color: 120/255, 120/255, 120/255, 1
-
-        Button:
+        MDRaisedButton:
             text: "Entrar"
-            background_color: 0, 0, 0, 1  # Fundo preto
-            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Medium.ttf"
+            md_bg_color: 0, 0, 0, 1  # Fundo preto
+            text_color: 1, 1, 1, 1
             size_hint: .79, .08
             pos_hint: {"center_x": .5, "center_y": .15}
-            canvas.before:
-                Color:
-                    rgb: 0, 0, 0, 1
-                RoundedRectangle:
-                    size: self.size
-                    pos: self.pos
-                    radius: [2]
+            on_release: app.login()
 
         MDTextButton:
             text: "Esqueceu a senha?"
