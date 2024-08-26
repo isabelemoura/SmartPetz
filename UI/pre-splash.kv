@@ -8,7 +8,7 @@ MDScreen:
             size_hint: (1, 1)  # Faz a imagem preencher toda a tela
         MDLabel:
             text: "Smart Petz"
-            pos_hint: {"center_x": .5, "center_y": .25}
+            pos_hint: {"center_x": .5, "center_y": .35}  # Movido mais para cima
             halign: "center"
             theme_text_color: "Custom"
             text_color: 1, 1, 1, 1
@@ -16,9 +16,18 @@ MDScreen:
             font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Bold.ttf"
         MDLabel:
             text: "Descubra novos meios de\ncuidar do seu amigo"
-            pos_hint: {"center_x": .5, "center_y": .15}
+            pos_hint: {"center_x": .5, "center_y": .25}  # Movido mais para cima
             halign: "center"
             theme_text_color: "Custom"
             text_color: 1, 1, 1, 1
             font_size: "13sp"
             font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-Regular.ttf"
+        MDRaisedButton:
+            text: "Entrar"
+            md_bg_color: 0, 0, 0, 0  # Fundo transparente
+            text_color: 1, 1, 1, 1  # Texto branco
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .15}  # Movido mais para cima
+            on_release: app.go_back_to_login()  # Corrigido para chamar o método existente
+            line_color: 1, 1, 1, 1  # Cor da borda branca
+            line_width: 1  # Espessura da borda

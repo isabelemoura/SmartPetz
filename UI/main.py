@@ -3,7 +3,6 @@ from kivy.properties import NumericProperty
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.clock import Clock
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.button import MDRaisedButton
 from kivy.metrics import dp
@@ -56,6 +55,10 @@ class RegistrarAnimal(Screen):
 
 class DefinirRefeicao(Screen):
     pass  # Defina o conteúdo da tela se necessário
+
+class Login(Screen):
+    pass  # Defina o conteúdo da tela se necessário
+
 
 class HomeScreen(Screen):
     water_level = NumericProperty(41)  # Exemplo de valor inicial
@@ -115,25 +118,19 @@ class SmartPetz(MDApp):
         Builder.load_file("pre-splash.kv")
         Builder.load_file("login.kv")
         
-        self.screen_manager.add_widget(Monitor(name="monitor"))
+        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
         self.screen_manager.add_widget(HomeScreen(name="home"))
+        self.screen_manager.add_widget(Monitor(name="monitor"))
         self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
-        self.screen_manager.add_widget(Builder.load_file("login.kv"))
+        self.screen_manager.add_widget(Login(name="login"))
         self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
         self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
         self.screen_manager.add_widget(ConfigScreen(name="config"))
         self.screen_manager.add_widget(WifiScreen(name="wifi"))
         self.screen_manager.add_widget(BluetoothScreen(name="bluetooth"))
-        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
         self.screen_manager.add_widget(Menu(name="menu"))
         
         return self.screen_manager
-    
-    def on_start(self):
-        Clock.schedule_once(self.show_login_screen, 5)
-    
-    def show_login_screen(self, *args):
-        self.screen_manager.current = "login"
     
     def registrar(self):
         self.screen_manager.current = "registrar"
@@ -142,7 +139,7 @@ class SmartPetz(MDApp):
         self.screen_manager.current = "pre-splash"
     
     def go_back_to_login(self):
-        self.screen_manager.current = "login"
+        self.root.current = "login"
 
     def go_back_to_registrar_animal(self):
         self.root.current = "registrar_animal"
