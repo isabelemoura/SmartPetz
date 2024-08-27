@@ -1,0 +1,62 @@
+<DefinirPorcao>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        Label:
+            text: 'Configurar Dispenser'
+            font_size: 24
+            size_hint_y: None
+            height: 40
+            color: (0, 0, 0, 1)  # Define a cor do texto como preto
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 80
+            spacing: 20
+
+            Button:
+                text: '+'
+                font_size: 32
+                size_hint_x: None
+                width: 80
+                on_press: root.increment_weight()
+
+            Label:
+                id: weight_label
+                text: f'{root.weight}g'  # Atualize o texto com base na propriedade weight
+                font_size: 32
+                size_hint_x: None
+                width: 120
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                color: (0, 0, 0, 1)  # Define a cor do texto como preto
+
+            Button:
+                text: '-'
+                font_size: 32
+                size_hint_x: None
+                width: 80
+                on_press: root.decrement_weight()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 60
+            spacing: 20
+            padding: [0, 10, 0, 0]
+
+            Button:
+                text: 'Cancelar'
+                font_size: 24
+                on_press: root.cancel()
+                background_color: (0.8, 0.2, 0.2, 1)  # Cor de fundo do botão
+
+            Button:
+                text: 'Salvar'
+                font_size: 24
+                on_press: root.save()
+                background_color: (0.2, 0.8, 0.2, 1)  # Cor de fundo do botão
