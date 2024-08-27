@@ -75,15 +75,15 @@
 
                 OneLineListItem:
                     text: "Definir porção"
-                    on_release: app.root.current = "definir_porcao"
+                    on_release: app.go_back_to_definir_porcao()
 
                 OneLineListItem:
                     text: "Agendar refeições"
-                    on_release: app.root.current = "agendar_refeicoes"
+                    on_release: app.go_back_to_agendar_refeicao()
 
                 OneLineListItem:
                     text: "Alterar rede wifi"
-                    on_release: app.root.current = "alterar_wifi"
+                    on_release: app.go_back_to_wifi()
 
                 OneLineListItem:
                     text: "Manual"
@@ -113,14 +113,14 @@
                 MDIconButton:
                     icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\home.png"
                     user_font_size: "35sp"
-                    on_release: app.go_back_to_login()
+                    on_release: app.go_back_to_home()
                     size_hint: None, None
                     size: "50dp", "50dp"
 
                 MDIconButton:
                     icon: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Icons\monitor.png"
                     user_font_size: "35sp"
-                    on_release: app.go_back_to_pre_splash()
+                    on_release: app.go_back_to_monitor()
                     size_hint: None, None
                     size: "50dp", "50dp"
 

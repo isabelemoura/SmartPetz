@@ -161,22 +161,26 @@ class SmartPetz(MDApp):
         Builder.load_file("login.kv")
 
         # Adiciona as telas ao ScreenManager
+        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
+        self.screen_manager.add_widget(ConfigScreen(name="config"))
         self.screen_manager.add_widget(AgendarRefeicao(name="agendar_refeicao"))
         self.screen_manager.add_widget(HomeScreen(name="home"))
         self.screen_manager.add_widget(DefinirPorcao(name="definir_porcao"))
         self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
-        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
         self.screen_manager.add_widget(Monitor(name="monitor"))
         self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
         self.screen_manager.add_widget(Login(name="login"))
         self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
-        self.screen_manager.add_widget(ConfigScreen(name="config"))
         self.screen_manager.add_widget(WifiScreen(name="wifi"))
         self.screen_manager.add_widget(BluetoothScreen(name="bluetooth"))
         self.screen_manager.add_widget(Menu(name="menu"))
         
         return self.screen_manager
     
+    def go_back_to_home(self):
+        # Volta para a tela de Definir Porção
+        self.root.current = "home"
+
     def registrar(self):
         # Muda para a tela de registro
         self.screen_manager.current = "registrar"
@@ -204,6 +208,18 @@ class SmartPetz(MDApp):
     def go_back_to_bluetooth(self):
         # Volta para a tela de Bluetooth
         self.root.current = "bluetooth"
+    
+    def go_back_to_definir_porcao(self):
+        # Volta para a tela de Definir Porção
+        self.root.current = "definir_porcao"
+    
+    def go_back_to_agendar_refeicao(self):
+        # Volta para a tela de Definir Porção
+        self.root.current = "agendar_refeicao"
+    
+    def go_back_to_monitor(self):
+        # Volta para a tela de Definir Porção
+        self.root.current = "monitor"
 
     def open_menu(self, button):
         # Abre o menu dropdown quando um botão é clicado
