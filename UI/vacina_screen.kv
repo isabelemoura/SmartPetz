@@ -12,16 +12,16 @@
         MDLabel:
             text: "Vacina"
             font_size: "28sp"
-            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"  # Altere para o caminho correto da fonte
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
             color: 120/255, 120/255, 120/255, 1
-            pos_hint: {"center_x": .6, "center_y": .94}  # Ajuste para não sobrepor o ícone
+            pos_hint: {"center_x": .6, "center_y": .94}
 
         MDDropDownItem:
             id: animal_selector
             text: "Selecione o animal"
             pos_hint: {"center_x": .5, "center_y": .84}
             size_hint_x: 0.8
-            on_release: app.open_animal_selector()
+            on_release: app.open_animal_selector(self)
 
         ScrollView:
             size_hint: (1, 0.65)

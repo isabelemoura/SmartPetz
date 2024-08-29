@@ -166,21 +166,21 @@ class SmartPetz(MDApp):
         Builder.load_file("pre-splash.kv")
         Builder.load_file("login.kv")
 
-        # Adiciona as telas ao ScreenManager]
-        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
-        self.screen_manager.add_widget(Builder.load_file("add_vacina.kv"))
-        self.screen_manager.add_widget(Login(name="login"))
-        self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
-        self.screen_manager.add_widget(VacinaScreen(name="vacina"))
-        self.screen_manager.add_widget(ConfigScreen(name="config"))
-        self.screen_manager.add_widget(AgendarRefeicao(name="agendar_refeicao"))
-        self.screen_manager.add_widget(HomeScreen(name="home"))
-        self.screen_manager.add_widget(DefinirPorcao(name="definir_porcao"))
-        self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
-        self.screen_manager.add_widget(Monitor(name="monitor"))
-        self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
-        self.screen_manager.add_widget(WifiScreen(name="wifi"))
+        # Adiciona as telas ao ScreenManager
         self.screen_manager.add_widget(BluetoothScreen(name="bluetooth"))
+        self.screen_manager.add_widget(WifiScreen(name="wifi"))
+        self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
+        self.screen_manager.add_widget(Monitor(name="monitor"))
+        self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
+        self.screen_manager.add_widget(DefinirPorcao(name="definir_porcao"))
+        self.screen_manager.add_widget(HomeScreen(name="home"))
+        self.screen_manager.add_widget(AgendarRefeicao(name="agendar_refeicao"))
+        self.screen_manager.add_widget(ConfigScreen(name="config"))
+        self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
+        self.screen_manager.add_widget(Login(name="login"))
+        self.screen_manager.add_widget(Builder.load_file("add_vacina.kv"))
+        self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
+        self.screen_manager.add_widget(VacinaScreen(name="vacina"))
         self.screen_manager.add_widget(Menu(name="menu"))
         
         return self.screen_manager
@@ -234,6 +234,29 @@ class SmartPetz(MDApp):
             print("Checkbox está marcado")
         else:
             print("Checkbox está desmarcado")
+    
+    def open_animal_selector(self, dropdown_item):
+        # Abre o menu dropdown para seleção de opções após selecionar o animal
+        menu_items = [
+            {
+                "text": f"Opção {i+1}",
+                "viewclass": "OneLineListItem",
+                "on_release": lambda x=f"Opção {i+1}": self.menu_callback(x),
+            } for i in range(4)  # Adicione aqui o número de opções que deseja
+        ]
+        self.animal_menu = MDDropdownMenu(
+            caller=dropdown_item,
+            items=menu_items,
+            width_mult=4,
+        )
+        self.animal_menu.open()
+
+    def menu_callback(self, text_item):
+        # Manipula a seleção do item no menu dropdown
+        self.animal_menu.dismiss()
+        print(f"Selecionado: {text_item}")
+        # Atualiza o texto do label com o item selecionado
+        self.root.ids.animal_menu_label.text = f"Selecionado: {text_item}"
 
     def open_menu(self, button):
         # Abre o menu dropdown quando um botão é clicado
