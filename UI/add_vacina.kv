@@ -1,0 +1,53 @@
+MDScreen:
+    name: "add_vacina"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(16)
+        spacing: dp(20)
+        pos_hint: {"center_y": .75}
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_x": .05, "center_y": .99}
+            on_release: app.go_back_to_pre_splash()
+
+        MDLabel:
+            text: "Adicionar Vacina"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            font_size: "28sp"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDTextField:
+            hint_text: "Nome da Vacina"
+            mode: "line"
+
+        MDTextField:
+            hint_text: "Data (se já foi aplicada)"
+            mode: "line"
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: dp(10)
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDLabel:
+                text: "Está pendente?"
+                size_hint_x: 0.8
+                valign: "middle"
+
+            MDCheckbox:
+                size_hint_x: 0.2
+                active: False
+                on_active: app.checkbox_toggle(self, self.active)
+
+        MDRaisedButton:
+            text: "Salvar"
+            pos_hint: {"center_x": .5}
+            size_hint: None, None
+            size: dp(100), dp(40)
+            md_bg_color: 0, 0, 0, 1

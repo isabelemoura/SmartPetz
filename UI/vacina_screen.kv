@@ -1,0 +1,57 @@
+<VacinaScreen>:
+    name: "vacina_screen"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .94, "x": 0.02}
+            on_release: app.go_back_to_home()
+
+        MDLabel:
+            text: "Vacina"
+            font_size: "28sp"
+            font_name: r"C:\Users\User\OneDrive\Área de Trabalho\SmartPetz\Fonts\Poppins\Poppins-SemiBold.ttf"  # Altere para o caminho correto da fonte
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .94}  # Ajuste para não sobrepor o ícone
+
+        MDDropDownItem:
+            id: animal_selector
+            text: "Selecione o animal"
+            pos_hint: {"center_x": .5, "center_y": .84}
+            size_hint_x: 0.8
+            on_release: app.open_animal_selector()
+
+        ScrollView:
+            size_hint: (1, 0.65)
+            pos_hint: {"center_y": 0.43}
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                OneLineListItem:
+                    text: "+ Adicionar vacina"
+                    on_release: app.go_to_add_vacina()
+
+                OneLineListItem:
+                    text: "V8/V10 - Aplicado em: 05/10/2020"
+                    on_release: app.go_to_vacina_details("V8/V10", "05/10/2020")
+
+                OneLineListItem:
+                    text: "Gripe Canina - Aplicado em: 10/01/2021"
+                    on_release: app.go_to_vacina_details("Gripe Canina", "10/01/2021")
+
+                OneLineListItem:
+                    text: "Giárdia - Aplicado em: 15/09/2021"
+                    on_release: app.go_to_vacina_details("Giárdia", "15/09/2021")
+
+                OneLineListItem:
+                    text: "Antirrábica - Aplicado em: 25/10/2023"
+                    on_release: app.go_to_vacina_details("Antirrábica", "25/10/2023")

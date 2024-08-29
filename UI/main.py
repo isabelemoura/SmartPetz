@@ -75,6 +75,10 @@ class AgendarRefeicao(Screen):
     # Tela de Agendar Refeição - definir o conteúdo conforme necessário
     pass
 
+class VacinaScreen(Screen):
+    # Tela de Listagem de Vacina - definir o conteúdo conforme necessário
+    pass
+
 class DefinirPorcao(Screen):
     # Propriedade para o peso da porção
     weight = NumericProperty(100)  # Utilize NumericProperty para facilidade de cálculo
@@ -147,6 +151,8 @@ class SmartPetz(MDApp):
         self.screen_manager = ScreenManager()
         
         # Carrega os arquivos KV para as telas
+        Builder.load_file("add_vacina.kv")
+        Builder.load_file("vacina_screen.kv")
         Builder.load_file("definir_porcao.kv")
         Builder.load_file("agendar_refeicao.kv")
         Builder.load_file("home_screen.kv")
@@ -160,8 +166,12 @@ class SmartPetz(MDApp):
         Builder.load_file("pre-splash.kv")
         Builder.load_file("login.kv")
 
-        # Adiciona as telas ao ScreenManager
+        # Adiciona as telas ao ScreenManager]
         self.screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
+        self.screen_manager.add_widget(Builder.load_file("add_vacina.kv"))
+        self.screen_manager.add_widget(Login(name="login"))
+        self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
+        self.screen_manager.add_widget(VacinaScreen(name="vacina"))
         self.screen_manager.add_widget(ConfigScreen(name="config"))
         self.screen_manager.add_widget(AgendarRefeicao(name="agendar_refeicao"))
         self.screen_manager.add_widget(HomeScreen(name="home"))
@@ -169,8 +179,6 @@ class SmartPetz(MDApp):
         self.screen_manager.add_widget(DefinirRefeicao(name="refeicao"))
         self.screen_manager.add_widget(Monitor(name="monitor"))
         self.screen_manager.add_widget(RegistrarAnimal(name="registrar_animal"))
-        self.screen_manager.add_widget(Login(name="login"))
-        self.screen_manager.add_widget(Builder.load_file("registrar_usuario.kv"))
         self.screen_manager.add_widget(WifiScreen(name="wifi"))
         self.screen_manager.add_widget(BluetoothScreen(name="bluetooth"))
         self.screen_manager.add_widget(Menu(name="menu"))
@@ -220,6 +228,12 @@ class SmartPetz(MDApp):
     def go_back_to_monitor(self):
         # Volta para a tela de Definir Porção
         self.root.current = "monitor"
+    
+    def checkbox_toggle(self, checkbox, is_active):
+        if is_active:
+            print("Checkbox está marcado")
+        else:
+            print("Checkbox está desmarcado")
 
     def open_menu(self, button):
         # Abre o menu dropdown quando um botão é clicado

@@ -26,7 +26,8 @@ MDScreen:
             text: "Começar"
             md_bg_color: 0, 0, 0, 0  # Fundo transparente
             text_color: 1, 1, 1, 1  # Texto branco
-            size_hint: .6, .06  # Tamanho reduzido
+            size_hint: None, None  # Definindo o tamanho fixo
+            size: dp(100), dp(40)  # Tamanho fixo
             pos_hint: {"center_x": .5, "center_y": .15}  # Movido mais para cima
             on_release: app.go_back_to_login()  # Corrigido para chamar o método existente
             line_color: 1, 1, 1, 1  # Cor da borda branca
